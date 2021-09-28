@@ -32,6 +32,7 @@ cmake_policy(SET CMP0028 NEW)
 # Enable MACOSX_RPATH (@rpath) for built dynamic libraries.
 cmake_policy(SET CMP0042 NEW)
 project(tensorflow-lite C CXX)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(TENSORFLOW_SOURCE_DIR "" CACHE PATH
   "Directory that contains the TensorFlow project"
 )
@@ -55,8 +56,8 @@ set(CMAKE_PREFIX_PATH
 set(absl_DIR ${CMAKE_MODULE_PATH})
 
 option(TFLITE_ENABLE_RUY "Enable experimental RUY integration" OFF)
-option(TFLITE_ENABLE_RESOURCE "Enable experimental support for resources" ON)
-option(TFLITE_ENABLE_NNAPI "Enable NNAPI (Android only)." ON)
+option(TFLITE_ENABLE_RESOURCE "Enable experimental support for resources" OFF)
+option(TFLITE_ENABLE_NNAPI "Enable NNAPI (Android only)." OFF)
 option(TFLITE_ENABLE_MMAP "Enable MMAP (unsupported on Windows)" ON)
 option(TFLITE_ENABLE_GPU "Enable GPU" OFF)
 # This must be enabled when converting from TF models with SELECT_TF_OPS
