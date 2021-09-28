@@ -326,7 +326,7 @@ include_directories(
 )
 
 # TFLite library
-add_library(tensorflow-lite
+add_library(tensorflow-lite SHARED
   ${TFLITE_CORE_API_SRCS}
   ${TFLITE_CORE_SRCS}
   ${TFLITE_C_SRCS}
@@ -351,6 +351,8 @@ add_library(tensorflow-lite
   ${TFLITE_SOURCE_DIR}/profiling/platform_profiler.cc
   ${TFLITE_SOURCE_DIR}/schema/schema_utils.cc
   ${TFLITE_SOURCE_DIR}/tools/optimize/sparsity/format_converter.cc
+  ${TFLITE_SOURCE_DIR}/tools/command_line_flags.cc
+  ${TFLITE_SOURCE_DIR}/tools/tool_params.cc
 )
 target_include_directories(tensorflow-lite
   PUBLIC
